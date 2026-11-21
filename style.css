@@ -489,6 +489,72 @@ section {
     position: relative;
     min-height: 260px;
     padding: 75px 28px 28px;
+    overflow: hidden;
+    transform: translateY(0);
+    transition:
+        transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 260ms ease,
+        box-shadow 260ms ease,
+        background-color 260ms ease;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-number {
+    transition:
+        transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        background-color 260ms ease,
+        color 260ms ease;
+}
+
+.project-tags span {
+    transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background-color 220ms ease,
+        color 220ms ease;
+}
+
+@media (hover: hover) {
+    .project-card:hover {
+        transform: translateY(-7px);
+        border-color: var(--accent);
+        background-color: var(--surface);
+        box-shadow: 0 22px 45px rgba(29, 48, 42, 0.13);
+    }
+
+    .project-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .project-card:hover .project-number {
+        transform: rotate(8deg) scale(1.08);
+        background: var(--accent);
+        color: var(--surface);
+    }
+
+    .project-card:hover .project-tags span {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+        background: var(--soft-accent);
+    }
+
+    .project-card:hover .project-tags span:nth-child(2) {
+        transition-delay: 35ms;
+    }
+
+    .project-card:hover .project-tags span:nth-child(3) {
+        transition-delay: 70ms;
+    }
 }
 
 .project-number {
@@ -674,6 +740,15 @@ footer {
 @media (max-width: 480px) {
     .logo {
         display: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .project-card,
+        .project-card::before,
+        .project-number,
+        .project-tags span {
+            transition: none;
+        }
     }
 
     .nav {
