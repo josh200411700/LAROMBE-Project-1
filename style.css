@@ -314,9 +314,38 @@ section {
 }
 
 .home-content h2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 0.55em;
     margin-top: 18px;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 18px;
+}
+
+.typing-role {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 0;
+    overflow: hidden;
+    border-right: 2px solid var(--accent);
+    padding-right: 2px;
+    white-space: nowrap;
+    animation:
+        hero-typing 2.2s steps(22, end) 350ms forwards,
+        hero-caret 750ms step-end 350ms infinite;
+}
+
+@keyframes hero-typing {
+    to {
+        width: 22ch;
+    }
+}
+
+@keyframes hero-caret {
+    50% {
+        border-color: transparent;
+    }
 }
 
 .home-content > p {
@@ -848,15 +877,6 @@ section {
         display: none;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        .project-card,
-        .project-card::before,
-        .project-number,
-        .project-tags span {
-            transition: none;
-        }
-    }
-
     .nav {
         justify-content: center;
     }
@@ -895,5 +915,22 @@ section {
 
     .social-links a {
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card::before,
+    .project-number,
+    .project-tags span {
+        transition: none;
+    }
+
+    .typing-role {
+        width: auto;
+        overflow: visible;
+        border-right: 0;
+        padding-right: 0;
+        animation: none;
     }
 }
