@@ -247,11 +247,14 @@ section {
 
 .home-image {
     order: 2;
+    width: 100%;
 }
 
 .profile-portrait {
     width: min(390px, 100%);
+    max-width: 100%;
     aspect-ratio: 0.88;
+    height: auto;
     margin-inline: auto;
     display: block;
     border-radius: 220px 220px 18px 18px;
@@ -354,7 +357,7 @@ section {
 }
 
 .about-portrait {
-    max-width: 340px;
+    width: min(340px, 100%);
     aspect-ratio: 1;
     border-radius: 18px;
     object-position: center 18%;
@@ -707,8 +710,7 @@ footer {
     }
 
     .profile-portrait {
-        max-width: 330px;
-        height: 390px;
+        width: min(330px, 100%);
     }
 
     .home-content h1 {
@@ -724,7 +726,7 @@ footer {
     }
 
     .about-portrait {
-        max-width: 280px;
+        width: min(280px, 100%);
     }
 
     #skills,
@@ -781,10 +783,6 @@ footer {
     .About-details,
     .skills-container {
         grid-template-columns: 1fr;
-    }
-
-    .profile-portrait {
-        height: 350px;
     }
 
     .social-links {
