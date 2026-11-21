@@ -17,6 +17,12 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 body {
     min-width: 320px;
     background: var(--paper);
@@ -83,7 +89,58 @@ img {
     color: var(--ink);
 }
 
-.nav-links a.active::after {
+.nav-links a.active::after,
+.nav-links a:focus-visible::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    padding-block: 10px;
+}
+
+.nav-links a:focus-visible,
+.logo:focus-visible,
+.back-to-top:focus-visible,
+.home-buttons a:focus-visible,
+.social-links a:focus-visible {
+    outline: 3px solid rgba(164, 184, 74, 0.45);
+    outline-offset: 4px;
+}
+
+body:has(#about:target) .nav-links a[href="#home"],
+body:has(#skills:target) .nav-links a[href="#home"],
+body:has(#projects:target) .nav-links a[href="#home"],
+body:has(#contact:target) .nav-links a[href="#home"] {
+    color: var(--muted);
+}
+
+body:has(#about:target) .nav-links a[href="#home"]::after,
+body:has(#skills:target) .nav-links a[href="#home"]::after,
+body:has(#projects:target) .nav-links a[href="#home"]::after,
+body:has(#contact:target) .nav-links a[href="#home"]::after,
+.nav-links a:not(.active)::after {
+    content: none;
+}
+
+body:has(#about:target) .nav-links a[href="#about"],
+body:has(#skills:target) .nav-links a[href="#skills"],
+body:has(#projects:target) .nav-links a[href="#projects"],
+body:has(#contact:target) .nav-links a[href="#contact"] {
+    color: var(--ink);
+}
+
+body:has(#about:target) .nav-links a[href="#about"]::after,
+body:has(#skills:target) .nav-links a[href="#skills"]::after,
+body:has(#projects:target) .nav-links a[href="#projects"]::after,
+body:has(#contact:target) .nav-links a[href="#contact"]::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -476,13 +533,15 @@ footer {
     }
 
     .nav-links {
-        gap: 16px;
+        gap: 10px;
     }
 
-    .nav-links li:nth-child(2),
-    .nav-links li:nth-child(3),
-    .nav-links li:nth-child(4) {
-        display: none;
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
     }
 
     #home,
@@ -533,6 +592,20 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .logo {
+        display: none;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 6px;
+    }
+
     .home-buttons {
         flex-direction: column;
     }
