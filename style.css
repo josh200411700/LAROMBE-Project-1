@@ -14,6 +14,8 @@
     --button-bg: #285d4d;
     --button-text: #ffffff;
     --button-hover: #1e493c;
+    --hero-glow: rgba(105, 163, 130, 0.18);
+    --hero-warm-glow: rgba(227, 205, 157, 0.20);
 }
 
 * {
@@ -186,6 +188,8 @@ body:has(.theme-toggle:checked) {
     --button-bg: #91c9a7;
     --button-text: #15231b;
     --button-hover: #a6d9b8;
+    --hero-glow: rgba(77, 135, 105, 0.23);
+    --hero-warm-glow: rgba(126, 117, 75, 0.10);
 }
 
 body:has(#about:target) .nav-links a[href="#home"],
@@ -229,15 +233,25 @@ section {
     scroll-margin-top: 76px;
 }
 
-#home,
 #about,
 #contact {
     width: min(1120px, calc(100% - 48px));
     margin-inline: auto;
 }
 
+#home {
+    width: 100%;
+    background:
+        radial-gradient(ellipse 42% 78% at 82% 44%, var(--hero-glow), transparent 100%),
+        radial-gradient(ellipse 34% 64% at 13% 8%, var(--hero-warm-glow), transparent 100%),
+        linear-gradient(115deg, var(--paper) 0%, var(--cream) 52%, var(--paper) 100%);
+    transition: background 250ms ease;
+}
+
 .home-container {
+    width: min(1120px, calc(100% - 48px));
     min-height: 620px;
+    margin-inline: auto;
     display: grid;
     grid-template-columns: 0.92fr 1.08fr;
     align-items: center;
@@ -783,13 +797,13 @@ section {
         font-size: 18px;
     }
 
-    #home,
     #about,
     #contact {
         width: calc(100% - 32px);
     }
 
     .home-container {
+        width: calc(100% - 32px);
         grid-template-columns: 1fr;
         gap: 38px;
         padding-block: 55px 75px;
