@@ -1,18 +1,19 @@
 :root {
-    --ink: #191919;
-    --muted: #6f706a;
-    --paper: #fbfaf6;
-    --cream: #f1efe7;
-    --accent: #a4b84a;
-    --line: #dedfd6;
+    --ink: #1d302a;
+    --muted: #5e7069;
+    --paper: #fcfbf8;
+    --cream: #f0f3ee;
+    --accent: #397c67;
+    --line: #dce5de;
     --surface: #ffffff;
-    --header-bg: rgba(251, 250, 246, 0.94);
-    --soft-accent: #dfe6b9;
-    --label-color: #7d806f;
-    --focus-ring: rgba(164, 184, 74, 0.45);
-    --button-bg: #191919;
+    --header-bg: rgba(252, 251, 248, 0.94);
+    --soft-accent: #e2eee5;
+    --accent-halo: #e5f1e8;
+    --label-color: #527567;
+    --focus-ring: rgba(57, 124, 103, 0.38);
+    --button-bg: #285d4d;
     --button-text: #ffffff;
-    --button-hover: #333333;
+    --button-hover: #1e493c;
 }
 
 * {
@@ -36,7 +37,7 @@ body {
     background: var(--paper);
     color: var(--ink);
     font-family: "DM Sans", sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     transition: background-color 200ms ease, color 200ms ease;
 }
 
@@ -54,7 +55,7 @@ img {
     top: 0;
     z-index: 20;
     height: 76px;
-    border-bottom: 1px solid rgba(25, 25, 25, 0.08);
+    border-bottom: 1px solid var(--line);
     background: var(--header-bg);
     backdrop-filter: blur(12px);
 }
@@ -75,7 +76,7 @@ img {
 }
 
 .logo {
-    font-family: "Manrope", sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 21px;
     font-weight: 800;
     letter-spacing: -1px;
@@ -95,7 +96,7 @@ img {
 .nav-links a {
     position: relative;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -170,20 +171,21 @@ img {
 }
 
 body:has(.theme-toggle:checked) {
-    --ink: #f2f1e9;
-    --muted: #b7b9ae;
-    --paper: #171914;
-    --cream: #20231c;
-    --accent: #c8df62;
-    --line: #3a3e33;
-    --surface: #252820;
-    --header-bg: rgba(23, 25, 20, 0.94);
-    --soft-accent: #3a4325;
-    --label-color: #c0c6a5;
-    --focus-ring: rgba(200, 223, 98, 0.55);
-    --button-bg: #c8df62;
-    --button-text: #171914;
-    --button-hover: #d6ea7c;
+    --ink: #edf4ef;
+    --muted: #b0c1b8;
+    --paper: #151d19;
+    --cream: #1c2822;
+    --accent: #91c9a7;
+    --line: #34463c;
+    --surface: #222f28;
+    --header-bg: rgba(21, 29, 25, 0.95);
+    --soft-accent: #2b4034;
+    --accent-halo: #2a4134;
+    --label-color: #a6c4b1;
+    --focus-ring: rgba(145, 201, 167, 0.55);
+    --button-bg: #91c9a7;
+    --button-text: #15231b;
+    --button-hover: #a6d9b8;
 }
 
 body:has(#about:target) .nav-links a[href="#home"],
@@ -258,10 +260,7 @@ section {
     box-shadow: inset 0 0 0 1px rgba(25, 25, 25, 0.06);
 }
 
-.home-greeting,
-#skills h2,
-#projects h2,
-.contact-container h2 {
+.home-greeting {
     font-size: 12px;
     letter-spacing: 1.8px;
     text-transform: uppercase;
@@ -281,15 +280,15 @@ section {
     margin-right: 9px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 0 4px #edf1d5;
+    box-shadow: 0 0 0 4px var(--accent-halo);
 }
 
 .home-content h1 {
     max-width: 620px;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(48px, 6vw, 76px);
-    line-height: 1.02;
-    letter-spacing: -4px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(46px, 5.7vw, 72px);
+    line-height: 1.08;
+    letter-spacing: -3.2px;
 }
 
 .home-content h1 span {
@@ -299,8 +298,8 @@ section {
 
 .home-content h2 {
     margin-top: 18px;
-    font-family: "Manrope", sans-serif;
-    font-size: 19px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
 }
 
 .home-content > p {
@@ -371,10 +370,10 @@ section {
 
 .about-content h3 {
     margin-bottom: 18px;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(34px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -2.5px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(32px, 3.8vw, 44px);
+    line-height: 1.16;
+    letter-spacing: -1.8px;
 }
 
 .about-content > p {
@@ -414,17 +413,23 @@ section {
 }
 
 #skills > h2,
-#projects > h2 {
-    color: var(--label-color);
+#projects > h2,
+.contact-container h2 {
+    color: var(--ink);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(32px, 4vw, 44px);
+    letter-spacing: -1.6px;
+    line-height: 1.2;
+    text-transform: none;
 }
 
 .skills-description,
 .projects-description {
     margin: 8px 0 32px;
-    font-family: "Manrope", sans-serif;
-    font-size: clamp(30px, 4vw, 46px);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(28px, 3.7vw, 42px);
     font-weight: 800;
-    letter-spacing: -2px;
+    letter-spacing: -1.4px;
 }
 
 .skills-description {
@@ -459,8 +464,8 @@ section {
 
 .skill-card h3 {
     margin-bottom: 8px;
-    font-family: "Manrope", sans-serif;
-    font-size: 19px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
 }
 
 .skill-card p {
@@ -527,7 +532,7 @@ section {
 }
 
 .contact-container h2 {
-    color: var(--label-color);
+    margin-bottom: 4px;
 }
 
 .contact-description {
@@ -641,7 +646,7 @@ footer {
     }
 
     .home-content h1 {
-        letter-spacing: -3px;
+        letter-spacing: -2.4px;
     }
 
     #about {
